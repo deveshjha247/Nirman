@@ -1,14 +1,80 @@
 {
-  "total_tests": 1,
-  "passed_tests": 0,
-  "failed_tests": 1,
-  "success_rate": 0.0,
+  "total_tests": 12,
+  "passed_tests": 12,
+  "failed_tests": 0,
+  "success_rate": 100.0,
   "test_results": [
     {
       "test": "User Login",
-      "success": false,
+      "success": true,
       "details": "",
-      "timestamp": "2026-01-07T14:19:10.052742"
+      "timestamp": "2026-01-07T14:19:54.811487"
+    },
+    {
+      "test": "LLM Keys Pricing Info",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:54.850927"
+    },
+    {
+      "test": "LLM Keys Overview Stats",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:54.887757"
+    },
+    {
+      "test": "LLM Keys List (Empty)",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:54.964102"
+    },
+    {
+      "test": "LLM Keys Create",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.008352"
+    },
+    {
+      "test": "LLM Keys List (With Data)",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.084868"
+    },
+    {
+      "test": "LLM Keys Get Specific",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.122408"
+    },
+    {
+      "test": "LLM Keys Update",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.160215"
+    },
+    {
+      "test": "LLM Keys Regenerate",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.194323"
+    },
+    {
+      "test": "LLM Keys Usage",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.234033"
+    },
+    {
+      "test": "LLM Keys Credits History",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.272860"
+    },
+    {
+      "test": "LLM Keys Delete",
+      "success": true,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:55.310924"
     }
   ]
 }
