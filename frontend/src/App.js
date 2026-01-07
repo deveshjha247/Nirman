@@ -27,6 +27,8 @@ import Settings from './pages/Settings';
 import Integrations from './pages/Integrations';
 import Agent from './pages/Agent';
 import AgentChat from './pages/AgentChat';
+import LLMKeys from './pages/LLMKeys';
+import Docs from './pages/Docs';
 
 function App() {
   return (
