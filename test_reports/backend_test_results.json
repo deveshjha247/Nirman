@@ -1,0 +1,14 @@
+{
+  "total_tests": 1,
+  "passed_tests": 0,
+  "failed_tests": 1,
+  "success_rate": 0.0,
+  "test_results": [
+    {
+      "test": "User Login",
+      "success": false,
+      "details": "",
+      "timestamp": "2026-01-07T14:19:10.052742"
+    }
+  ]
+}
