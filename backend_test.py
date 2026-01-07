@@ -103,8 +103,8 @@ class NirmanAPITester:
             }
         )
         
-        if success and 'token' in response:
-            self.token = response['token']
+        if success and 'access_token' in response:
+            self.token = response['access_token']
             self.user_id = response.get('user', {}).get('id')
             self.log_test("User Login", True)
             return True
