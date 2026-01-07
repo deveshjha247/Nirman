@@ -2,14 +2,15 @@
 
 <div align="center">
 
-![Nirman Logo](frontend/logo.png)
-
 ### **"Soch lo, Bana do"** – Just Think It, Build It
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](https://github.com/noobdeveshjha/Nirman/releases/tag/v1.0.0)
 [![License](https://img.shields.io/badge/license-MIT-green)]()
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)]()
+[![React](https://img.shields.io/badge/React-19.0-61DAFB?logo=react&logoColor=black)]()
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.110+-009688?logo=fastapi&logoColor=white)]()
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?logo=mongodb&logoColor=white)]()
 [![AI Providers](https://img.shields.io/badge/AI%20Providers-17+-orange)]()
-[![GitHub Integration](https://img.shields.io/badge/Deploy-GitHub%20Pages-black)]()
 
 </div>
 
@@ -56,31 +57,31 @@ With Nirman, you simply:
 
 ## 🧠 How Nirman is Different
 
-### Self-Learning AI
+### 🎓 Self-Learning AI
 Unlike other builders, Nirman **learns from every project**:
 - Remembers your preferred colors, fonts, layouts
 - Gets better at understanding your style over time
 - Applies winning patterns from successful projects
 
-### Two-Phase Intelligence
+### 🧠 Two-Phase Intelligence
 1. **Planner Agent** – Analyzes your request, detects industry, creates detailed spec
 2. **Builder Agent** – Generates optimized, production-ready code
 
-### 17+ AI Providers
-Choose the best AI for your needs from US, China, and Open Source:
+### 🌐 17+ AI Providers
+Choose the best AI for your needs:
 
 | Region | Providers |
 |--------|-----------|
-| 🇺🇸 **US/Global** | OpenAI GPT-5, Gemini, Claude, Grok, Mistral, Cohere, Groq, Together, Perplexity, Fireworks, AI21 |
+| 🇺🇸 **US/Global** | OpenAI GPT-4o, Gemini, Claude, Grok, Mistral, Cohere, Groq, Together, Perplexity, Fireworks, AI21 |
 | 🇨🇳 **Chinese AI** | DeepSeek, Alibaba Qwen, Moonshot Kimi, 01.AI Yi, Zhipu GLM |
 | 🤗 **Open Source** | Hugging Face Inference API |
 
-### GitHub Integration 
-- 🐙 Connect GitHub via OAuth
-- 📦 Create repos automatically
-- 📤 Push code with one click
-- 🌐 Enable GitHub Pages instantly
-- 🔗 Get live URL: `username.github.io/project-name`
+### 🐙 GitHub Integration 
+- Connect GitHub via OAuth
+- Create repos automatically
+- Push code with one click
+- Enable GitHub Pages instantly
+- Get live URL: `username.github.io/project-name`
 
 ---
 
@@ -135,19 +136,21 @@ Nirman includes a powerful multi-agent system:
 
 | Layer | Technology |
 |-------|------------|
-| **Frontend** | React 18, Tailwind CSS, shadcn/ui |
-| **Backend** | FastAPI (Python 3.11+) |
+| **Frontend** | React 19, Tailwind CSS 3.4, shadcn/ui, Radix UI |
+| **Backend** | FastAPI 0.110+ (Python 3.11+) |
 | **Database** | MongoDB |
+| **Build Tool** | CRACO (Create React App Configuration Override) |
 | **AI Providers** | OpenAI, Gemini, Claude, Grok, DeepSeek, Mistral, Cohere, Groq, Together, Perplexity, Fireworks, AI21, Qwen, Moonshot, Yi, Zhipu, HuggingFace |
 | **Integrations** | GitHub, Vercel, Supabase, Firebase, MongoDB Atlas, Canva, Razorpay, Cashfree |
 | **Auth** | JWT + bcrypt |
+| **Styling** | Tailwind CSS, class-variance-authority, tailwind-merge |
 
 ## 📋 Prerequisites
 
-- Node.js 18+
-- Python 3.11+
-- MongoDB (local or cloud)
-- At least one AI API key
+- **Node.js** 18+ (Yarn 1.22+ recommended)
+- **Python** 3.11+
+- **MongoDB** (local or Atlas cloud)
+- At least one AI API key (OpenAI, Gemini, DeepSeek, etc.)
 
 ## 🚀 Quick Start
 
@@ -243,9 +246,11 @@ py -m uvicorn app.main:app --reload --port 8000
 
 ```powershell
 cd frontend
-npm install
-npm start
+yarn install
+yarn start
 ```
+
+> **Note:** This project uses CRACO for custom webpack configuration.
 
 Frontend runs at `http://localhost:3000`, Backend at `http://localhost:8000`
 
@@ -291,56 +296,121 @@ Frontend runs at `http://localhost:3000`, Backend at `http://localhost:8000`
 ## 📁 Project Structure
 
 ```
-nirman/
-├── backend/                    # FastAPI Backend
+Nirman/
+├── backend/                        # FastAPI Backend
+│   ├── server.py                   # Server entry point
+│   ├── requirements.txt            # Python dependencies
 │   ├── app/
-│   │   ├── main.py            # App entry + lifespan events
+│   │   ├── main.py                 # App entry + lifespan events
 │   │   ├── core/
-│   │   │   ├── config.py      # Environment config (17 AI keys)
-│   │   │   └── security.py    # JWT auth
+│   │   │   ├── config.py           # Environment config (17 AI keys)
+│   │   │   └── security.py         # JWT auth
 │   │   ├── db/
-│   │   │   └── mongo.py       # MongoDB connection
+│   │   │   └── mongo.py            # MongoDB connection
 │   │   ├── models/
-│   │   │   ├── user.py
-│   │   │   ├── project.py
-│   │   │   ├── jobs.py        # Build jobs & events
-│   │   │   ├── learning.py    # Self-learning models
-│   │   │   └── integrations.py # GitHub/Vercel models
+│   │   │   ├── user.py             # User model
+│   │   │   ├── project.py          # Project model
+│   │   │   ├── build.py            # Build model
+│   │   │   ├── jobs.py             # Build jobs & events
+│   │   │   ├── learning.py         # Self-learning models
+│   │   │   ├── integrations.py     # GitHub/Vercel models
+│   │   │   ├── plan.py             # Subscription plans
+│   │   │   ├── wallet.py           # Wallet/credits
+│   │   │   ├── llm_keys.py         # LLM API keys
+│   │   │   ├── coupon.py           # Coupon system
+│   │   │   ├── domain.py           # Domain management
+│   │   │   ├── support.py          # Support tickets
+│   │   │   └── ai_usage.py         # AI usage tracking
 │   │   ├── routes/
-│   │   │   ├── auth.py
-│   │   │   ├── projects.py
-│   │   │   ├── build.py       # SSE build endpoints
-│   │   │   ├── learning.py    # Learning API
-│   │   │   └── integrations.py # GitHub OAuth & deploy
+│   │   │   ├── auth.py             # Authentication
+│   │   │   ├── projects.py         # Project CRUD
+│   │   │   ├── build.py            # SSE build endpoints
+│   │   │   ├── learning.py         # Learning API
+│   │   │   ├── integrations.py     # GitHub OAuth & deploy
+│   │   │   ├── integrations_extended.py  # Vercel, Supabase, Firebase, etc.
+│   │   │   ├── coding_agent.py     # Multi-agent endpoints
+│   │   │   ├── agent.py            # Agent routing
+│   │   │   ├── agent_chat.py       # Agent chat with SSE
+│   │   │   ├── llm_keys.py         # Universal LLM key system
+│   │   │   ├── plans.py            # Subscription plans
+│   │   │   ├── wallet.py           # Wallet operations
+│   │   │   ├── admin.py            # Admin dashboard
+│   │   │   ├── support.py          # Support system
+│   │   │   └── ai_keys.py          # AI API keys
 │   │   └── services/
-│   │       ├── ai_router.py       # 17 AI provider router
-│   │       ├── coding_agent.py    # Multi-agent system (CoderAgent, BrowserAgent, etc.)
-│   │       ├── github_service.py  # GitHub API integration
-│   │       ├── planner.py         # Planner Agent prompts
-│   │       ├── build_service.py   # SSE build worker
+│   │       ├── ai_router.py        # 17 AI provider router
+│   │       ├── coding_agent.py     # Multi-agent system
+│   │       ├── agent_system.py     # Agent orchestration
+│   │       ├── github_service.py   # GitHub API integration
+│   │       ├── planner.py          # Planner Agent prompts
+│   │       ├── build_service.py    # SSE build worker
 │   │       ├── learning_service.py # Learning engine
-│   │       └── aggregator_jobs.py  # Background learning jobs
-│   └── requirements.txt
+│   │       ├── aggregator_jobs.py  # Background learning jobs
+│   │       ├── payments.py         # Payment processing
+│   │       ├── utils.py            # Utility functions
+│   │       └── integrations/       # External service integrations
+│   │           ├── vercel_service.py
+│   │           ├── supabase_service.py
+│   │           ├── firebase_service.py
+│   │           ├── mongodb_service.py
+│   │           ├── canva_service.py
+│   │           ├── razorpay_service.py
+│   │           └── cashfree_service.py
 │
-├── frontend/                   # React Frontend
+├── frontend/                       # React 19 Frontend
+│   ├── package.json                # Dependencies (Yarn)
+│   ├── craco.config.js             # CRACO configuration
+│   ├── tailwind.config.js          # Tailwind CSS config
+│   ├── public/
+│   │   └── index.html
 │   ├── src/
-│   │   ├── App.js
+│   │   ├── App.js                  # Main app component
+│   │   ├── index.js                # Entry point
 │   │   ├── pages/
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Builder.jsx    # Chat builder + GitHub deploy
-│   │   │   ├── Build.jsx      # SSE build page
-│   │   │   ├── Agent.jsx      # Multi-agent coding interface
-│   │   │   ├── Integrations.jsx # GitHub/Vercel connect
-│   │   │   ├── Settings.jsx   # Privacy controls
-│   │   │   └── ...
+│   │   │   ├── Landing.jsx         # Landing page
+│   │   │   ├── Dashboard.jsx       # User dashboard
+│   │   │   ├── Builder.jsx         # Chat builder + GitHub deploy
+│   │   │   ├── Build.jsx           # SSE build page
+│   │   │   ├── Agent.jsx           # Multi-agent coding interface
+│   │   │   ├── AgentChat.jsx       # Agent conversation
+│   │   │   ├── Integrations.jsx    # GitHub/Vercel connect
+│   │   │   ├── Settings.jsx        # User settings
+│   │   │   ├── Plans.jsx           # Subscription plans
+│   │   │   ├── Wallet.jsx          # Wallet & credits
+│   │   │   ├── LLMKeys.jsx         # Manage LLM API keys
+│   │   │   ├── AIKeys.jsx          # AI key management
+│   │   │   ├── Admin.jsx           # Admin dashboard
+│   │   │   ├── Login.jsx           # Login page
+│   │   │   ├── Register.jsx        # Registration
+│   │   │   ├── Docs.jsx            # Documentation
+│   │   │   ├── About.jsx           # About page
+│   │   │   ├── Careers.jsx         # Careers page
+│   │   │   ├── Referrals.jsx       # Referral system
+│   │   │   ├── Privacy.jsx         # Privacy policy
+│   │   │   ├── Terms.jsx           # Terms of service
+│   │   │   └── Download.jsx        # Download page
 │   │   ├── components/
-│   │   │   ├── BuildChat.jsx  # SSE streaming UI
-│   │   │   ├── CodingAgent.jsx # Agent chat component
-│   │   │   └── ui/            # shadcn components
+│   │   │   ├── BuildChat.jsx       # SSE streaming UI
+│   │   │   ├── CodingAgent.jsx     # Agent chat component
+│   │   │   ├── Sidebar.jsx         # Navigation sidebar
+│   │   │   ├── Modals.jsx          # Modal components
+│   │   │   ├── ProtectedRoute.jsx  # Auth protection
+│   │   │   ├── CookieConsent.jsx   # Cookie consent
+│   │   │   └── ui/                 # shadcn/ui components
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx     # Authentication context
+│   │   ├── hooks/
+│   │   │   └── use-toast.js        # Toast notifications
 │   │   └── lib/
-│   │       └── api.js         # API client
-│   └── package.json
+│   │       ├── api.js              # API client
+│   │       └── utils.js            # Utility functions
+│   └── plugins/
+│       ├── health-check/           # Health monitoring
+│       └── visual-edits/           # Visual editing plugins
 │
+├── tests/                          # Test files
+├── test_reports/                   # Test results
+├── backend_test.py                 # Backend integration tests
 └── README.md
 ```
 
@@ -441,6 +511,14 @@ nirman/
 | GET | `/api/agent/conversations` | List user conversations |
 | GET | `/api/agent/usage/history` | Get usage history |
 | GET | `/api/agent/plans` | Get plan details |
+
+### LLM Keys (Universal Key System)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/llm-keys` | List user's LLM API keys |
+| POST | `/api/llm-keys` | Add new LLM API key |
+| DELETE | `/api/llm-keys/{provider}` | Remove LLM key |
+| GET | `/api/llm-keys/providers` | List supported providers |
 
 ## 🧠 Self-Learning Architecture
 
