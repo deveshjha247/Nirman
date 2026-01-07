@@ -69,6 +69,8 @@ app.include_router(integrations_extended.router, prefix="/api")
 app.include_router(coding_agent.router)
 # Agent Chat with SSE streaming
 app.include_router(agent_chat.router, prefix="/api")
+# LLM Keys (Universal Key System)
+app.include_router(llm_keys.router, prefix="/api")
 
 @app.get("/")
 async def root():
