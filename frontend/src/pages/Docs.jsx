@@ -10,10 +10,13 @@ const Docs = () => {
 
   // Parse section from URL hash
   useEffect(() => {
-    const hash = location.hash.replace('#', '');
-    if (hash) {
-      setActiveSection(hash);
-    }
+    const updateSection = () => {
+      const hash = location.hash.replace('#', '');
+      if (hash) {
+        setActiveSection(hash);
+      }
+    };
+    updateSection();
   }, [location]);
 
   const sections = [
