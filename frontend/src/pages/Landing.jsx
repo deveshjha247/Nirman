@@ -42,6 +42,7 @@ const Landing = () => {
           <div className="hidden md:flex items-center gap-10">
             <a href="#features" className="text-gray-600 hover:text-purple-600 transition-colors text-sm font-medium">Features</a>
             <a href="#pricing" className="text-gray-600 hover:text-purple-600 transition-colors text-sm font-medium">Pricing</a>
+            <a href="/docs" className="text-gray-600 hover:text-purple-600 transition-colors text-sm font-medium">Docs</a>
             <a href="/about" className="text-gray-600 hover:text-purple-600 transition-colors text-sm font-medium">About</a>
           </div>
           <div className="flex items-center gap-3">
