@@ -14,7 +14,7 @@ from app.routes import agent_chat
 from app.routes import llm_keys
 
 # Import config
-from app.core.config import APP_VERSION, APP_NAME
+from app.core.config import APP_VERSION, APP_NAME, FRONTEND_URL
 
 # Import aggregator for background jobs
 from app.services.aggregator_jobs import start_aggregator_scheduler, stop_aggregator_scheduler
@@ -40,10 +40,15 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# CORS middleware
+# CORS middleware - Use FRONTEND_URL for security (allows localhost in dev)
+allowed_origins = [
+    FRONTEND_URL,
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

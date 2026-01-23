@@ -39,9 +39,16 @@ from app.core.config import (
     DEFAULT_AI_PROVIDER
 )
 from app.db.mongo import db
+from app.core.config import ENCRYPTION_KEY as CONFIG_ENCRYPTION_KEY
 
-# Encryption key for BYO API keys (in production, use env var)
-ENCRYPTION_KEY = Fernet.generate_key()
+# Encryption key for BYO API keys - use from config or generate fallback
+# WARNING: If no ENCRYPTION_KEY in env, keys will be lost on restart!
+if CONFIG_ENCRYPTION_KEY:
+    ENCRYPTION_KEY = CONFIG_ENCRYPTION_KEY.encode() if isinstance(CONFIG_ENCRYPTION_KEY, str) else CONFIG_ENCRYPTION_KEY
+else:
+    import warnings
+    warnings.warn("ENCRYPTION_KEY not set in environment! BYO API keys will be lost on restart.")
+    ENCRYPTION_KEY = Fernet.generate_key()
 cipher = Fernet(ENCRYPTION_KEY)
 
 # =============================================================================

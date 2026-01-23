@@ -63,6 +63,13 @@ RAZORPAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET', '')
 MONGODB_ATLAS_PUBLIC_KEY = os.environ.get('MONGODB_ATLAS_PUBLIC_KEY', '')
 MONGODB_ATLAS_PRIVATE_KEY = os.environ.get('MONGODB_ATLAS_PRIVATE_KEY', '')
 
+# CORS - Frontend URL
+FRONTEND_URL = os.environ.get('FRONTEND_URL', 'http://localhost:3000')
+
+# Encryption key for BYO API keys (generate once and store in .env)
+# Generate with: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+ENCRYPTION_KEY = os.environ.get('ENCRYPTION_KEY', None)
+
 # Plans Configuration
 PLANS = {
     "free": {
