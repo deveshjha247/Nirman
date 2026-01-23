@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute, AdminRoute } from './components/ProtectedRoute';
+import ErrorBoundary from './components/ErrorBoundary';
 import CookieConsent from './components/CookieConsent';
 import './App.css';
 
@@ -15,7 +16,6 @@ import Build from './pages/Build';
 import Wallet from './pages/Wallet';
 import Plans from './pages/Plans';
 import Referrals from './pages/Referrals';
-import AIKeys from './pages/AIKeys';
 import Admin from './pages/Admin';
 import ManageCookies from './pages/ManageCookies';
 import Terms from './pages/Terms';
@@ -32,9 +32,10 @@ import Docs from './pages/Docs';
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <CookieConsent />
+    <ErrorBoundary>
+      <BrowserRouter>
+        <AuthProvider>
+          <CookieConsent />
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Landing />} />
@@ -79,11 +80,8 @@ function App() {
               <Referrals />
             </ProtectedRoute>
           } />
-          <Route path="/ai-keys" element={
-            <ProtectedRoute>
-              <AIKeys />
-            </ProtectedRoute>
-          } />
+          {/* Redirect old ai-keys route to llm-keys */}
+          <Route path="/ai-keys" element={<Navigate to="/llm-keys" replace />} />
           <Route path="/llm-keys" element={
             <ProtectedRoute>
               <LLMKeys />
@@ -122,6 +120,7 @@ function App() {
         </Routes>
       </AuthProvider>
     </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 
